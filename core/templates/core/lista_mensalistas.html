@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mensalistas</title>
+</head>
+<body>
+    <h2>Lista Mensalistas</h2>
+
+    <ul>
+
+        {% for mensal in mensalista %}
+            <li>{{ mensal.veiculo }} - {{ mensal.veiculo.placa }}</li>
+        {% endfor %}
+
+    </ul>
+</body>
+</html>
+
+
+

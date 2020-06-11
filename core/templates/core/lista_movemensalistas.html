@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mov Mensalistas</title>
+</head>
+<body>
+    <h2>Lista Movimento Mensalistas</h2>
+
+    <ul>
+
+        {% for mov in movmensal %}
+            <li>{{ mov.mensalista }} - {{ mov.total }}</li>
+        {% endfor %}
+
+    </ul>
+</body>
+</html>
+
