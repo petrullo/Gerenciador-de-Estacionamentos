@@ -10,8 +10,22 @@
     <ul>
 
         {% for mensal in mensalista %}
-            <li>{{ mensal.veiculo }} - {{ mensal.veiculo.placa }}</li>
+            <li>
+                <a href="{% url 'core_mensalista_update' mensal.id %}">{{ mensal.veiculo }} - {{ mensal.veiculo.placa }}</a>
+            </li>
+
         {% endfor %}
+
+        <form action="{% url 'core_mensalista_novo' %}" method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+
 
     </ul>
 </body>

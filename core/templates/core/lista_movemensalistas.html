@@ -10,8 +10,22 @@
     <ul>
 
         {% for mov in movmensal %}
-            <li>{{ mov.mensalista }} - {{ mov.total }}</li>
+            <li>
+                <a href="{% url 'core_movemensalista_update' mov.id %}">{{ mov.mensalista }} - {{ mov.total }}</a>
+            </li>
+
         {% endfor %}
+
+        <form action="{% url 'core_movemensalista_novo' %}" method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+
 
     </ul>
 </body>

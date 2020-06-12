@@ -10,8 +10,23 @@
     <ul>
 
         {% for mov in movrot %}
-            <li>{{ mov.checkin }} - {{ mov.veiculo.placa }}</li>
+            <li>
+                <a href="{% url 'core_movrotativo_update' mov.id %}">{{ mov.checkin }} - {{ mov.veiculo.placa }}</a>
+            </li>
+
         {% endfor %}
+
+
+        <form action="{% url 'core_movrotativo_novo' %}" method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+
 
     </ul>
 </body>
