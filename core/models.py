@@ -2,7 +2,6 @@ from django.db import models
 import math
 
 
-
 class Pessoa(models.Model):
     nome = models.CharField(max_length=100)
     endereco = models.CharField(max_length=200)
@@ -10,7 +9,6 @@ class Pessoa(models.Model):
 
     def __str__(self):
         return self.nome
-
 
 
 class Marca(models.Model):
@@ -34,7 +32,6 @@ class Veiculo(models.Model):
 class Parametros(models.Model):
     valor_hora = models.DecimalField(max_digits=5, decimal_places=2)
     valor_mes = models.DecimalField(max_digits=6, decimal_places=2)
-
 
     def __str__(self):
         return 'Parametros Gerais'
@@ -60,7 +57,7 @@ class MovRotativo(models.Model):
 class Mensalista(models.Model):
     veiculo = models.ForeignKey(Veiculo, on_delete=models.CASCADE)
     inicio = models.DateField()
-    valor_mes = models.DecimalField(max_digits=6,decimal_places=2)
+    valor_mes = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
         return str(self.veiculo) + ' - ' + str(self.inicio)
@@ -69,20 +66,7 @@ class Mensalista(models.Model):
 class MovMensalista(models.Model):
     mensalista = models.ForeignKey(Mensalista, on_delete=models.CASCADE)
     dt_pgto = models.DateField()
-    total = models.DecimalField(max_digits=6,decimal_places=2)
+    total = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
         return str(self.mensalista) + ' - ' + str(self.total)
-
-
-
-
-
-
-
-
-
-
-
-
-
