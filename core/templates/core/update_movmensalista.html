@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>MovMensalista</title>
-</head>
-<body>
-    <h2>Update MovMensalista: {{ movmensal }}</h2>
+{% extends 'base.html' %}
 
-    <form action="{% url 'core_movemensalista_update' movmensal.id %}" method="POST">
+{% block main %}
 
+<h2>Updating MovMensalista: {{ mov_mensalista }}</h2>
+
+
+<form action="{% url 'core_movmensalista_update' mov_mensalista.id %}" method="POST">
         {% csrf_token %}
-
+    
         {{ form.as_p }}
+    
+        <button type="submit">Salvar</button>
+</form>
 
-        <button type="submit">Atualizar</button>
-
-    </form>
-
-    <a href="{% url 'core_movemensalista_delete' movmensal.id %}">Deletar</a>
-
-</body>
-</html>
+<a href="{% url 'core_movmensalista_delete' mov_mensalista.id %}">Delete</a>
 
 
+{% endblock %}

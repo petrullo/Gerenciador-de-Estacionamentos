@@ -1,8 +1,10 @@
-from django.contrib import admin
-from django.urls import path
 from django.conf.urls import url, include
+from django.urls import path
+from django.contrib import admin
 
 urlpatterns = [
-    path('core/', include('core.urls')),
-    path('admin/', admin.site.urls),
+    url(r'^', include('website.urls')),
+    url(r'sistema/', include('core.urls')),
+    url(r'^admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

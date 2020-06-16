@@ -1,10 +1,10 @@
 from django.forms import ModelForm
 from .models import (
-    Pessoa,
-    Veiculo,
-    MovRotativo,
-    Mensalista,
-    MovMensalista,
+    Pessoa, 
+    Veiculo, 
+    MovRotativo, 
+    Mensalista, 
+    MovMensalista
 )
 
 
